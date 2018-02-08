@@ -1,0 +1,21 @@
+body
+{
+    /* structure */
+    background-color: #F8FFF2;
+    margin: 0 auto;
+    padding: 1em;
+    min-height: 100%;
+    width: 90%;
+    font-size: 0.75rem;
+}
+
+html
+{
+    /* structure */
+    height: 100%;
+}
+
+h1
+{
+    color: #00968B;
+}
