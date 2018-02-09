@@ -36,7 +36,7 @@ include 'header.view.php';
                      <td><?= $movie['image'] ?></td>
                      <td><?= $movie['video'] ?></td>
                      <td>
-                        <a href="2-update-movie.php?id=<?= $movie['movieNumber'] ?>" class="btn btn-warning btn-sm" role="button">update</a>
+                        <a href="update-movie.php?id=<?= $movie['movieNumber'] ?>" class="btn btn-warning btn-sm" role="button">update</a>
                      </td>
                      <td>
                         <a href="delete-movie.php?id=<?= $movie['movieNumber'] ?>" class="btn btn-danger btn-sm" role="button">delete</a>
@@ -46,8 +46,10 @@ include 'header.view.php';
          </tbody>
      </table>
      <hr>
-     <a href="1-add-movie.php" class="btn btn-info">Pridėti nauja filma</a>
+     <a href="add-movie.php" class="btn btn-info">Pridėti nauja filma</a>
  </section>
+
+
 
  <?php
 

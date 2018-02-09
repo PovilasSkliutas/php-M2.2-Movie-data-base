@@ -5,6 +5,10 @@ error_reporting(E_ALL);
 
 include 'functions.php';
 
-addNewMovie ();
+$movieNumber = $_GET['id'];
 
-?>
+$edit_movie = getOneMovie ($movieNumber);
+
+include 'templates/update-movie.view.php';
+
+ ?>
