@@ -13,7 +13,13 @@
     <label for="year">Year</label>
     <select class="form-control" name="year">
         <?php for($i = 2018; $i> 1970; $i--): ?>
-            <option value="<?=$i?>" <?php echo ($i == $edit_movie['year']) ? 'selected' : '' ?> ><?=$i?></option>
+            <option value="<?=$i?>" <?php if (isset($edit_movie['year'])){
+                if($i == $edit_movie['year']) {
+                    echo 'selected';
+                }else {
+                    echo '';
+                }
+            } ?> ><?=$i?></option>
         <?php endfor; ?>
     </select>
 </div>
@@ -40,5 +46,5 @@
 
 <div class="form-group">
     <label for="video">Video</label>
-    <input type="text" class="form-control"  placeholder="enter link" name="video" value="<?= isset($edit_movie['image']) ? $edit_movie['image'] : '' ; ?>">
+    <input type="text" class="form-control"  placeholder="enter link" name="video" value="<?= isset($edit_movie['video']) ? $edit_movie['video'] : '' ; ?>">
 </div>

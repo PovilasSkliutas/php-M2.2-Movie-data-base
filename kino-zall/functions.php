@@ -13,10 +13,11 @@ function connectToDatabase () {
 };
 
 // apsirasome funkcija getMovieList - 'gauname filmu sarasa is duomenu bazes'
-function getMovieList () {
+function getMovieList ($from1, $perPage) {
     $pdo = connectToDatabase ();
 
-    $query = $pdo->prepare('SELECT * FROM kinofilmai');
+    $sql = "SELECT * FROM kinofilmai LIMIT {$from1}, {$perPage}";
+    $query = $pdo->prepare($sql);
     $query->execute();
     $movies = $query->fetchAll(PDO::FETCH_ASSOC);
     return $movies;
@@ -30,6 +31,7 @@ function addNewMovie () {
     $sql .= ' VALUES ("'.$_POST['movieTitle'].'", "'.$_POST['movieType'].'", "'.$_POST['year'].'", "'.$_POST['quality'].'", "'.$_POST['length'].'", "'.$_POST['description'].'", "'.$_POST['image'].'", "'.$_POST['video'].'")';
 
     $query = $pdo->prepare($sql);
+    //var_dump($query);die();
     $query->execute();
 
     header("Refresh:1; url=index.php?okey=1");
@@ -73,5 +75,25 @@ function deleteMovie ($movieNumber) {
 
     header("Refresh:1; url=index.php?okey=1");
 };
+
+function countMovies () {
+    $pdo = connectToDatabase ();
+
+    $sql = "SELECT COUNT(*) as count FROM kinofilmai";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $count = $query->fetch();
+    return $count;
+}
+
+function searchMovie ($search) {
+    $pdo = connectToDatabase ();
+
+    $sql = "SELECT * FROM `kinofilmai` where movieTitle like '%{$search}%'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $rezult = $query->fetchAll();
+    echo json_encode($rezult);
+}
 
  ?>

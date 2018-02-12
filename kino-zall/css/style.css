@@ -19,3 +19,29 @@ h1
 {
     color: #00968B;
 }
+h6 {
+    font-weight: bold;
+}
+dl, ol, ul {
+    margin: 0 auto;
+}
+#searhRezult {
+    position: relative;
+}
+
+#rezult {
+    background-color: white!important;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: absolute;
+    z-index: 2;
+}
+#rezult p {
+    margin: 0;
+}
+
+.movieImage, .movieInfo, .movieDescription, .movieTrial {
+    padding: 1rem;
+}
